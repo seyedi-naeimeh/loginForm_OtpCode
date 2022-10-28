@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .box-center {
+    @apply flex flex-col items-center justify-center font-iranyekan h-screen;
+  }
+  .btn-primary {
+    @apply bg-[#0D61A4] rounded-[100px] w-[248px] h-[40px] text-white mb-[40px];
+  }
+  .input-primry {
+    @apply border w-[245px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 mb-[40px] focus:appearance-none  outline-none ;
+  }
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
