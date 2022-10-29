@@ -45,13 +45,14 @@ function Login({ setStep }) {
     <>
       <div className="text-2xl my-[40px] font-bold">ورود/ثبت نام</div>
       <form onSubmit={handleSubmit} className="text-right w-[248px] sm:w-[320px] flex flex-col items-center hustify-center">
+      <div className="flex flex-col">
         <label
-          className="leading-[21px] mb-[16px]"
+          className="leading-[21px] mb-[16px] ml-auto"
           htmlFor="cellPhone"
         >
           لطفا شماره تلفن همراه خود را وارد کنید
         </label>
-        <div className="flex flex-col ">
+        
           <input
             ref={(input) => {
               input && input.focus();
@@ -68,8 +69,8 @@ function Login({ setStep }) {
             placeholder="09********"
             className={
               touched.phoneNumber && errors.phoneNumber
-                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none"
-                : "input-primry"
+                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none sm:w-[290px]"
+                : "input-primry sm:w-[290px]"
             }
           />
            {touched.phoneNumber && errors.phoneNumber && (
@@ -78,7 +79,7 @@ function Login({ setStep }) {
             </span>
           )}
         </div>
-        <button className="btn-primary sm:w-[248px]" type="submit">
+        <button className="btn-primary sm:w-[290px]" type="submit">
         <p className="text-sm">تایید </p>
       </button>
       </form>

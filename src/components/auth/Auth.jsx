@@ -93,7 +93,7 @@ function Auth({ setStep }) {
         </div>
         <form
           onSubmit={(e)=>handleCheckOtp(e)}
-          className="text-right w-[248px] sm:w-[248px]"
+          className="text-right w-[248px] sm:w-[290px]"
         >
           <div className="mb-[16px] ">
             <label htmlFor="otp" className="leading-[21px]">
@@ -114,7 +114,7 @@ function Auth({ setStep }) {
               {error}
             </span>
           </div>
-          <button className="btn-primary sm:w-[248px]" type="sumbit">
+          <button className="btn-primary sm:w-[290px]" type="sumbit">
         <p className="font-iranyekan">تایید </p>
       </button>
         </form>

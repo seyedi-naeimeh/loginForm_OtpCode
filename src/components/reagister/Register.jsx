@@ -48,6 +48,7 @@ function Register() {
               id="firstName"
               name="firstName"
               type="text"
+              autoFocus={true}
               autoComplete="off"
               onChange={(e) => {
                 handleChange(e);
@@ -55,8 +56,8 @@ function Register() {
               value={values.firstName}
               className={
                 touched.firstName && errors.firstName
-                  ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none"
-                  : "input-primry"
+                  ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none sm:w-[290px]"
+                  : "input-primry sm:w-[290px]"
               }
             />
             {touched.firstName && errors.firstName && (
@@ -84,8 +85,8 @@ function Register() {
             value={values.lastName}
             className={
               touched.lastName && errors.lastName
-                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none"
-                : "input-primry"
+                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none sm:w-[290px]"
+                : "input-primry sm:w-[290px]"
             }
           />
           {touched.lastName && errors.lastName && (
@@ -96,7 +97,7 @@ function Register() {
         </div>
         </div>
 
-        <button type="submit" className="btn-primary">
+        <button type="submit" className="btn-primary sm:w-[290px]">
           تایید
         </button>
       </form>

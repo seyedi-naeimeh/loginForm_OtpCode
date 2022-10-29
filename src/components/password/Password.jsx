@@ -2,19 +2,21 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import logo from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 let validate = Yup.object().shape({
   password: Yup.string().required(".رمز خود را وارد کنید"),
 });
 
 const Password = () => {
+  const navigate=useNavigate()
   const { values, errors, handleChange, handleSubmit, touched } = useFormik({
     initialValues: {
       password: "",
     },
     validationSchema: validate,
     onSubmit: (values) => {
+      navigate(`/`)
       console.log("heloooo");
     },
   });
@@ -44,8 +46,8 @@ const Password = () => {
             value={values.password}
             className={
               touched.password && errors.password
-                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3   focus:appearance-none  outline-none"
-                : "input-primry"
+                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3   focus:appearance-none  outline-none sm:w-[290px]"
+                : "input-primry sm:w-[290px]"
             }
           />
           {touched.password && errors.password && (
@@ -54,7 +56,7 @@ const Password = () => {
             </span>
           )}
         </div>
-        <button type="submit" className="btn-primary">
+        <button type="submit" className="btn-primary sm:w-[290px]">
           تایید
         </button>
         <Link to="/loginPage" className="mb-[8px]">

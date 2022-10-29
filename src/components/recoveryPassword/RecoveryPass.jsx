@@ -9,7 +9,7 @@ let validate = Yup.object().shape({
   passwordConfirmation: Yup.string().oneOf(
     [Yup.ref("password"), null],
     "رمز جدید و تکرار آن یکی نیست"
-  ),
+  ).required((" رمز خود را وارد کنید"))
 });
 
 const RecoveryPass = () => {
@@ -21,8 +21,8 @@ const RecoveryPass = () => {
     },
     validationSchema: validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+      navigate(`/password`)
+    }
   });
 
   const handleClick = () => {
@@ -48,14 +48,16 @@ const RecoveryPass = () => {
             id="password"
             name="password"
             type="text"
+            autoFocus={true}
+            autoComplete="off"
             onChange={(e) => {
               handleChange(e);
             }}
             value={values.password}
             className={
               touched.password && errors.password
-                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none"
-                : "input-primry"
+                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none sm:w-[290px]"
+                : "input-primry sm:w-[290px]"
             }
           />
           {touched.password && errors.password && (
@@ -74,14 +76,15 @@ const RecoveryPass = () => {
             id="passwordConfirmation"
             name="passwordConfirmation"
             type="text"
+            autoComplete="off"
             onChange={(e) => {
               handleChange(e);
             }}
             value={values.passwordConfirmation}
             className={
               touched.passwordConfirmation && errors.passwordConfirmation
-                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none"
-                : "input-primry"
+                ? "border w-[248px] h-[40px] text-right tracking-[.5px] rounded-[6px] p-3 focus:appearance-none  outline-none sm:w-[290px]"
+                : "input-primry sm:w-[290px]"
             }
           />
           {touched.passwordConfirmation && errors.passwordConfirmation && (
@@ -90,7 +93,7 @@ const RecoveryPass = () => {
             </span>
           )}
         </div>
-        <button type="submit" className="btn-primary">
+        <button type="submit" className="btn-primary sm:w-[290px]">
           تایید
         </button>
       </form>
